@@ -1,5 +1,329 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+ /* style.css - Mobile First подход */
+
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  /* сохраните в разметке и стилях класс page у тега body. 
+  Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-color);
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+/* Секция Заголовок */
+.header {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  padding: 10px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  border-top: 1px solid var(--decor-color);
+  border-right: 1px solid var(--decor-color);
+  top: 10px;
+  right: 10px;
+}
+
+.decorated-zone::after {
+  border-bottom: 1px solid var(--decor-color);
+  border-left: 1px solid var(--decor-color);
+  bottom: 10px;
+  left: 10px;
+}
+
+.rec {
+  position: absolute;
+  top: 10px;
+  right: 19px;
+  color: var(--accent-color);
+  visibility: var(--rec-visible);
+  font-size: var(--font-size);
+  line-height: 25px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rec::after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+  margin-left: 10px;
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+  padding-top: 65px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  height: 26px;
+  background: transparent;
+  color: var(--btn-color);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 18px;
+  text-transform: lowercase;
+  padding: 0 13px 4px;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--btn-color-hover);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--decor-color);
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid var(--decor-color);
+  box-shadow: 0 0 9px currentColor;
+}
+
+/* Title - no focus */
+.header__title {
+  font-size: var(--font-size-mobile);
+  color: var(--title-color);
+  text-shadow: var(--text-shadow);
+  font-family: var(--main-font, monospace);
+  line-height: 82.5%;
+  margin-inline-start: 0;
+  justify-self: end;
+}
+
+.header__text {
+  background-color: var(--accent-color);
+  color: var(--accent-text-color);
+  font-weight: 700;
+  justify-self: end;
+  align-self: center;
+  margin-block-start: 15vh;
+  width: clamp(350px, 50%, 500px);
+  margin-block-end: 114px;
+  place-self: end;
+}
+
+/* Основной контент */
+.content {
+  padding: 40px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.content__section {
+  display: grid;
+  gap: 20px;
+}
+
+.content__title {
+  color: var(--section-title-color);
+  font-size: 18px;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--accent-text-color);
+}
+
+.content__text {
+  color: var(--text-color);
+  margin-top: 10px;
+}
+
+/* Стили ссылок в тексте */
+.link {
+  color: var(--text-color);
+  text-shadow: 2px 2px 0 var(--link-shadow);
+  text-decoration: none;
+}
+
+.link:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.link:focus {
+  outline: none;
+}
+
+.link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.section__text-advice {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+/* Галерея */
+.content__gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FOOTER */
+.footer {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.footer__title {
+  font-size: var(--font-size-mobile);
+  color: var(--title-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+/* Планшетная версия (>=768px) */
+@media (min-width: 768px) {
+  .header {
+    padding: 20px;
+  }
+  
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .rec {
+    top: 20px;
+    right: 29px;
+  }
+  
+  .header__theme-menu {
+    padding-top: 172px;
+  }
+  
+  .header__title {
+    font-size: var(--font-size-desktop);
+    margin-inline-start: -20px;
+    justify-self: start;
+  }
+  
+  .header__text {
+    margin-block-end: 162px;
+  }
+  
+  .content {
+    padding: 60px 20px;
+    gap: 80px;
+  }
+  
+  .content__section:first-child {
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  .content__section:nth-child(3) {
+    grid-template-columns: 1fr 2fr;
+  }
+  
+  .content__section:nth-child(2) .content__title {
+    max-width: 30%;
+  }
+  
+  .content__gallery {
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "title title title"
+      "sunset sunset ice"
+      "tape books ice"
+      "tape street street";
+  }
+  
+  .sunset-img { grid-area: sunset; }
+  .ice-img { grid-area: ice; }
+  .tape-img { grid-area: tape; }
+  .books-img { grid-area: books; }
+  .street-img { grid-area: street; }
+}
+
+.footer__title {
+  font-size: var(--font-size-desktop);
+}
+
+/* Десктопная версия (>=1024px) */
+@media (min-width: 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+    padding-top: 0;
+  }
+  
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+  
+  .header__title {
+    text-shadow: var(--text-shadow);
+  }
+  
+  .content__section:first-child {
+    grid-template-columns: 315px 1fr;
+  }
+  
+  .content__section:nth-child(2) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .content__section:nth-child(3) {
+    grid-template-columns: 315px 1fr;
+  }
+  
+  .footer__title {
+    text-shadow: 2px 2px 0 var(--accent-shadow);
+    font-size: var(--font-size-desktop);
+  }
 }
