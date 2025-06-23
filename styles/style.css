@@ -178,7 +178,6 @@
 
 .content__text {
   color: var(--text-color);
-  /* margin-top: 0; */
 }
 
 /* Стили ссылок в тексте */
@@ -203,17 +202,17 @@
 .section__text-advice {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 20px;
   gap: 10px;
 }
 
 .section__text-advice .content__text {
   margin-top: 0;
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 
 .section__text-advice:not(:last-child) {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .regular {
