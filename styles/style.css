@@ -1,28 +1,42 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
- /* style.css - Mobile First подход */
+/* style.css - Mobile First подход */
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. 
   Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+
   background-color: var(--bg-color);
-  background-image: var(--bg-image);
+  /* background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   color: var(--text-color);
   font-family: var(--main-font);
   font-size: var(--font-size);
   line-height: var(--line-height);
+  min-inline-size: 375px;
+  max-inline-size: 1024px;
 }
 
 /* Секция Заголовок */
 .header {
   display: grid;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-rows: 1fr 126px 1fr;
+  /* grid-template-rows: 1fr min-content 1fr; */
+  /* grid-template-rows: auto auto 1fr;  */
   padding: 10px;
   min-height: 100vh;
   position: relative;
+  /* margin-block-start: -20px; */
+  /* gap: 70px; */
+  /* margin-inline-end: 22px; */
+  /* max-height: 768px; */
+
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  /* background-attachment: fixed; */
 }
 
 .decorated-zone::before,
@@ -75,7 +89,7 @@
 .header__theme-menu {
   justify-self: end;
   align-self: center;
-  padding-top: 65px;
+  padding-bottom: 33px;
 }
 
 .header__theme-menu-list {
@@ -112,7 +126,7 @@
 .header__theme-menu-button_active {
   pointer-events: none;
   outline: 1px solid var(--decor-color);
-  box-shadow: 0 0 9px currentColor;
+  box-shadow: 0 0 5px currentColor;
 }
 
 /* Title - no focus */
@@ -121,9 +135,12 @@
   color: var(--title-color);
   text-shadow: var(--text-shadow);
   font-family: var(--main-font, monospace);
-  line-height: 82.5%;
-  margin-inline-start: 0;
+  line-height: 83.5%;
+  margin-bottom: 54px;
   justify-self: end;
+
+  /* Поднимаем заголовок на мобильных */
+  margin-top: -32px;
 }
 
 .header__text {
@@ -132,18 +149,20 @@
   font-weight: 700;
   justify-self: end;
   align-self: center;
-  margin-block-start: 15vh;
-  width: clamp(350px, 50%, 500px);
-  margin-block-end: 114px;
+  margin-block-start: 4vh;
+  width: clamp(355px, 50%, 500px);
+  /* margin-block-start: 24px; */
   place-self: end;
 }
 
 /* Основной контент */
 .content {
-  padding: 40px 10px;
+  /* padding: 40px 10px; */
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding-inline: 10px;
+  padding-block: 40px;
 }
 
 .content__section {
@@ -156,9 +175,17 @@
   font-size: 18px;
 }
 
+.content__section-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .title-decor {
   background-color: var(--accent-color);
   color: var(--accent-text-color);
+  font-size: var(--font-size);
+  
 }
 
 .content__text {
@@ -225,69 +252,108 @@
 @media (min-width: 768px) {
   .header {
     padding: 20px;
+    grid-template-rows: 1fr min-content 1fr;
+    grid-template-rows: 1fr 30px 1fr;
   }
-  
+
   .decorated-zone::before {
     top: 20px;
     right: 20px;
   }
-  
+
   .decorated-zone::after {
     bottom: 20px;
     left: 20px;
   }
-  
+
   .rec {
     top: 20px;
     right: 29px;
   }
-  
+
   .header__theme-menu {
-    padding-top: 172px;
+    padding-top: 155px;
   }
-  
+
   .header__title {
     font-size: var(--font-size-desktop);
     margin-inline-start: -20px;
+    /* margin-block-end: -20px; */
     justify-self: start;
   }
-  
-  .header__text {
-    margin-block-end: 162px;
+
+  .header__section {
+    /* check */
+    /* margin-inline-start: 92px; */
+    margin-block-start: -14px;
   }
-  
+
   .content {
     padding: 60px 20px;
     gap: 80px;
   }
-  
+
   .content__section:first-child {
     grid-template-columns: 1fr 2fr;
+    grid-row: span 2;
   }
-  
+
+  .content__section:first-child .content__title {
+    grid-row: span 2;
+  }
+
   .content__section:nth-child(3) {
     grid-template-columns: 1fr 2fr;
   }
-  
+
   .content__section:nth-child(2) .content__title {
     max-width: 30%;
+    /* grid-row: span 2; */
   }
-  
+
+  .header__theme-menu-list {
+    /* check */
+    padding-bottom: 158px;
+  }
+
+  .header__title {
+    padding-top: 13px;
+  }
+
+  .header__text {
+    margin-top: 162px;
+  }
+
   .content__gallery {
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
     grid-template-areas:
       "title title title"
       "sunset sunset ice"
       "tape books ice"
       "tape street street";
   }
-  
-  .sunset-img { grid-area: sunset; }
-  .ice-img { grid-area: ice; }
-  .tape-img { grid-area: tape; }
-  .books-img { grid-area: books; }
-  .street-img { grid-area: street; }
+
+  .content__gallery h3.title-decor {
+    grid-area: title;
+  }
+
+  .sunset-img {
+    grid-area: sunset;
+  }
+  .ice-img {
+    grid-area: ice;
+  }
+  .tape-img {
+    grid-area: tape;
+  }
+  .books-img {
+    grid-area: books;
+  }
+  .street-img {
+    grid-area: street;
+  }
 }
 
 .footer__title {
@@ -301,27 +367,50 @@
     align-self: start;
     padding-top: 0;
   }
-  
+
   .header__theme-menu-list {
     flex-direction: row;
   }
-  
+
+  .header__section {
+    /* check */
+    /* margin-inline-start: 92px; */
+    margin-block-start: 0;
+  }
+
   .header__title {
     text-shadow: var(--text-shadow);
+    margin-block-start: -62px;
+    margin-block-end: -6px;
   }
-  
+
+  .header__text {
+    margin-block-start: 120px;
+    /* margin-block-end: -120px; */
+  }
+
   .content__section:first-child {
     grid-template-columns: 315px 1fr;
   }
-  
-  .content__section:nth-child(2) {
-    grid-template-columns: repeat(3, 1fr);
+
+  .content__section:first-child .content__title {
+    grid-row: span 2;
   }
-  
+
+  .content__section:nth-child(2) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .content__section:nth-child(2) .content__title {
+    grid-column: span 3;
+    width: 30%;
+  }
+
   .content__section:nth-child(3) {
     grid-template-columns: 315px 1fr;
   }
-  
+
   .footer__title {
     text-shadow: 2px 2px 0 var(--accent-shadow);
     font-size: var(--font-size-desktop);
