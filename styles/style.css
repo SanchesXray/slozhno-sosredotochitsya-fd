@@ -178,7 +178,7 @@
 
 .content__text {
   color: var(--text-color);
-  margin-top: 0;
+  /* margin-top: 0; */
 }
 
 /* Стили ссылок в тексте */
