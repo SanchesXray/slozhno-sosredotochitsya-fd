@@ -7,10 +7,6 @@
   Он удобен, чтобы составлять селекторы для разных цветовых тем. */
 
   background-color: var(--bg-color);
-  /* background-image: var(--bg-image);
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed; */
   color: var(--text-color);
   font-family: var(--main-font);
   font-size: var(--font-size);
@@ -23,20 +19,12 @@
 .header {
   display: grid;
   grid-template-rows: 1fr 126px 1fr;
-  /* grid-template-rows: 1fr min-content 1fr; */
-  /* grid-template-rows: auto auto 1fr;  */
   padding: 10px;
   min-height: 100vh;
   position: relative;
-  /* margin-block-start: -20px; */
-  /* gap: 70px; */
-  /* margin-inline-end: 22px; */
-  /* max-height: 768px; */
-
   background-image: var(--bg-image);
   background-position: center;
   background-size: cover;
-  /* background-attachment: fixed; */
 }
 
 .decorated-zone::before,
@@ -157,7 +145,6 @@
 
 /* Основной контент */
 .content {
-  /* padding: 40px 10px; */
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -185,7 +172,6 @@
   background-color: var(--accent-color);
   color: var(--accent-text-color);
   font-size: var(--font-size);
-  
 }
 
 .content__text {
@@ -278,13 +264,10 @@
   .header__title {
     font-size: var(--font-size-desktop);
     margin-inline-start: -20px;
-    /* margin-block-end: -20px; */
     justify-self: start;
   }
 
   .header__section {
-    /* check */
-    /* margin-inline-start: 92px; */
     margin-block-start: -14px;
   }
 
@@ -308,11 +291,9 @@
 
   .content__section:nth-child(2) .content__title {
     max-width: 30%;
-    /* grid-row: span 2; */
   }
 
   .header__theme-menu-list {
-    /* check */
     padding-bottom: 158px;
   }
 
@@ -373,8 +354,6 @@
   }
 
   .header__section {
-    /* check */
-    /* margin-inline-start: 92px; */
     margin-block-start: 0;
   }
 
@@ -386,7 +365,6 @@
 
   .header__text {
     margin-block-start: 120px;
-    /* margin-block-end: -120px; */
   }
 
   .content__section:first-child {
