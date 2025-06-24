@@ -78,6 +78,7 @@
   margin-left: 10px;
 }
 
+/* Стили кнопок */
 .header__theme-menu {
   justify-self: end;
   align-self: center;
@@ -302,7 +303,7 @@
   .content__section--question .content__title {
     grid-row: span 2;
   }
-  
+
   .content__section--factors {
     grid-template-columns: 1fr;
   }
@@ -399,7 +400,6 @@
   }
 
   .content__section--advices {
-    grid-template-columns: repeat(3, 1fr);
     grid-template-columns: 315px 1fr;
   }
 
